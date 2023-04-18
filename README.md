@@ -194,3 +194,61 @@ const names:string = person['name'];
 console.log(age);
 console.log(names);
 ```
+
+
+## typescript 함수
+
+### 타입
+> 매개변수 타입과 반환타입 2가지가 존재
+```typescript
+//함수 타입은 매개변수 타임과, 반환 타입 2개 존재
+function add(x: number, y: number): number {
+  return x + y;
+}
+export {};
+
+```
+
+
+### 매개변수
+
+#### 기본 매개 변수
+> 기본적으로 모든 매개변수를 받아야 한다.
+```typescript
+function person(firstName: string, lastName: string) {}
+
+//오류1 : 너무 적은 매개변수
+//let choi1 = person('Choi');
+//오류2 : 너무 많은 매개변수
+//let choi2 = person("Choi","Dae Geon","Add");
+//성공
+let choi3 = person('Choi', 'Dae Geon');
+
+```
+
+#### 선택적 매개 변수
+> 필수가 아닐 경우 변수명 뒤에 ?를 붙인다.
+```typescript
+function person2(firstName: string, lastName?: string) {}
+//성공
+let choi4 = person2('Choi');
+//오류2 : 너무 많은 매개변수
+//let choi5 = person2("Choi","Dae Geon","Add");
+//성공
+let choi6 = person2('Choi','Dae Geon');
+```
+
+
+#### 기본 초기화
+> ?를 붙이는 방법보다 기본값을 세팅하는 방법도 있다.
+
+```typescript
+//매개변수 초기화
+function person(firstName: string, lastName = 'Dae Geon') {}
+
+let choi1 = person('Choi');
+let choi2 = person('Choi', 'Dae Geon');
+//오류
+//let choi3 = person("Choi","Dae Geon","T");
+export {};
+```
