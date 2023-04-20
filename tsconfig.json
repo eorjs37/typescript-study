@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "system",
+    "module": "commonjs",
     "noImplicitAny": false,  /* 'any' 타입으로 구현된 표현식 혹은 정의 에러처리 여부 */
     "removeComments": true, /* 주석 삭제 여부 */
     "preserveConstEnums": true,
