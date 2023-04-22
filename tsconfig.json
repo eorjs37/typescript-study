@@ -5,7 +5,7 @@
     "removeComments": true, /* 주석 삭제 여부 */
     "preserveConstEnums": true,
     "sourceMap": false,  /* '.map' 파일 생성 여부. */
-    "strictNullChecks": true
+    "strictNullChecks": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
