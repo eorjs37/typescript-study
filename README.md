@@ -255,18 +255,30 @@ export {};
 
 
 ## typescript generics
-> 클래스 또는 함수에서 사용할 타입을, 그 클래스타 함수를 사용할 때 결정하는 프로그래밍 기법
+> 다양한 타입에서 동작하는 컴퍼넌트를 작성할 수 있다.
 
-
+함수에 number 인자를 넣으면 number 타입 return을 한다.
 ```typescript
-//ts -generics
-//배열에 들어가는 값이 string,number 등이 될 수 있다. 다양한 타입을 사용하기 위해 사용
-function getItemArray3<T>(arr: T[], index: number): T {
-  return arr[index];
+function identity(arg: number): number {
+  return arg;
 }
 
-function pushItemArray3<T>(arr: T[], item: T): void {
-  arr.push(item);
+//입력값이 어떤 타입에서 올 수 있다는 점에서는 제네릭이지만 , 반환할때에 대한 정보를 잃게 된다.
+function identity2(arg: any): any {
+  return arg;
 }
-
 ```
+
+타입 추론을 위해 T라는 타입 변수 추가한다. 그러면 T는 개발자가 준 타입을 캡쳐 하고 개발자가 정해준 T타입으로 반환타입설정
+```typescript
+function identity3<T>(arg: T): T {
+  return arg;
+}
+
+//T라는 타입 추가
+let output = identity3<string>('mystring');
+//타입 추론 인자 값에 따라 타입이 정해짐
+let output2 = identity3('test');
+```
+
+무엇이 반환되는지 표시하기 위해 인수의 타입을 캡쳐할 방법이 필요
